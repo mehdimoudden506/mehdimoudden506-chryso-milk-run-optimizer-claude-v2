@@ -71,10 +71,10 @@ const Clients = (() => {
         </td>
       </tr>`).join('');
 
-    const sortIcon = (field) => {
-      if (_sortField !== field) return '<span class="sort-icon"></span>';
-      return `<span class="sort-icon"></span>`;
-    };
+    const sortIcon = (field) =>
+      _sortField === field
+        ? `<span class="sort-icon"><i class="fa-solid fa-sort-${_sortAsc ? 'up' : 'down'}"></i></span>`
+        : '<span class="sort-icon"><i class="fa-solid fa-sort"></i></span>';
 
     const thClass = (field) => `sortable${_sortField === field ? (_sortAsc ? ' sort-asc' : ' sort-desc') : ''}`;
 

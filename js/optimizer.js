@@ -127,12 +127,13 @@ const Optimizer = (() => {
       improved = false;
       for (let i = 0; i < n - 1; i++) {
         for (let j = i + 1; j < n; j++) {
-          // Matrix indices:
-          //   prevI  = node before stops[i]: depot (0) when i=0, else stops[i-1] (index i)
+          // Matrix indices (depot is at index 0, stops[k] is at index k+1):
+          //   prevI  = node before stops[i]: depot (0) when i=0, else stops[i-1] at index i
           //   nodeI  = stops[i]  → index i+1
           //   nodeJ  = stops[j]  → index j+1
-          //   nextJ  = node after stops[j]: depot (0) when j=n-1, else stops[j+1] (index j+2)
-          const prevI = i;          // 0 when i=0 (depot), or i (=stops[i-1]+1 offset=stops[i-1] index)
+          //   nextJ  = node after stops[j]: depot (0) when j=n-1, else stops[j+1] at index j+2
+          // When i=0: prevI=0 → depot. When i>0: prevI=i → stops[i-1] (which is at matrix index i).
+          const prevI = i;
           const nodeI = i + 1;
           const nodeJ = j + 1;
           const nextJ = j === n - 1 ? 0 : j + 2;

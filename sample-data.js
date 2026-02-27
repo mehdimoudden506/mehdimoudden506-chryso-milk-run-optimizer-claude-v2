@@ -74,7 +74,7 @@ const SampleData = (() => {
         { name: 'Compartiment A', capacity: 5000, allowedProducts: [], notes: '' },
         { name: 'Compartiment B', capacity: 5000, allowedProducts: [], notes: '' },
         { name: 'Compartiment C', capacity: 5000, allowedProducts: [], notes: '' },
-        { name: 'Compartiment D', capacity: 3000, allowedProducts: [], notes: 'Réservé crème' },
+        { name: 'Compartiment D', capacity: 3000, allowedProducts: [], notes: 'Réservé crème' }, // allowedProducts set programmatically below
       ],
     },
     {
